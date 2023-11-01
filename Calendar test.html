@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>Compass Session Calendar</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-icons-1.11.1/bootstrap-icons.css">
+    <link href="css/Overrides.css" rel="stylesheet">
+    <link href="css/Compass.css" rel="stylesheet">
+    <link href="css/fullcalendar.min.css" rel="stylesheet">
+
+
+</head>
+<main>
+
+    <body>
+        <!-- This is the START of the Header-->
+        <div class="container-fluid menu-border-bottom">
+            <div class="row flex-nowrap">
+                <div class="col-1 d-none d-md-flex flex-wrap align-items-center compassLogo ">
+                    <span class="mx-auto"><img src="Images/CompassLogo.svg"></span>
+                </div>
+                <nav class="navbar navbar-expand-xl d-flex flex-wrap justify-content-center py-4 mb-0 col flex-grow-1" aria-label="Offcanvas navbar large">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="index.html"><img class="custom-logo ps-3" src="Images/lifepoint-logo.png"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasNavbar2Label">User Name</h5>
+                                <button type="button" class="btn-close btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div class="pe-3 btn-group">
+                                    <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="Images/Placeholders/Profile1.jpg" alt="User Profile Photo" width="45" height="45" class="rounded-circle">
+                                    </a>
+                                    <ul class="dropdown-menu text-small  dropdown-menu-lg-end">
+                                        <h5 class="dropdown-header">User Name</h5>
+                                        <li><a class="dropdown-item" href="#">My Discovery</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                    </ul>
+                                </div>
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 order-md-first">
+                                    <li class="nav-item pe-3"><a href="#" class="nav-link active" aria-current="page">Session Calendar</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- This is the END of the Header-->
+        <!-- This is the START of the the body-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                    <h1 class="main-header-title">Session Calendar</h1>
+                </div>
+                <div class="col-md-11 py-2 py-md-5">
+                    <div class="row pb-3">
+                        <div class="col">
+                            <h4>Event title</h4>
+                        </div>
+                        <div class="col text-end">
+                            <button type="button " class="btn btn-orange">Save Proposed Schedule</button>
+
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-primary">Today</button>
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-primary"><i class="bi bi-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <h4>Jan 21 &dash; 27, 2024</h4>
+                        </div>
+                        <div class="col text-end">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-primary">Day</button>
+                                <button type="button" class="btn btn-primary ">Week</button>
+                                <button type="button" class="btn btn-outline-primary">Month</button>
+                                <button type="button" class="btn btn-outline-primary ">List View</button>
+                            </div>
+                            <button class="btn btn-primary dropdown-toggle " type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-filter"></i>
+                                Filter
+                            </button>
+                            <div class="dropdown-menu" style="min-width:500px" aria-labelledby="triggerId">
+
+                                <h4 class="dropdown-header text-primary">Event type</h4>
+                                <form class="px-4 ">
+                                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label pe-3" for="flexCheckDefault">
+                                        Planned
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label pe-3" for="flexCheckDefault">
+                                        Approved
+                                    </label>
+                                </form><button class="dropdown-item mt-2" href="#">Clear all Event Tyeps</button>
+                                <hr class="dropdown-divider">
+                                <h4 class="dropdown-header text-primary">Event Title</h4>
+                                <form class="px-4 mx-1">
+                                    <input class="form-control mb-3" id="myInput" type="text" placeholder="Search...">
+                                    <div class="mb-2" style="display: block; overflow: auto; max-height: 200px; width: 100%;">
+                                        <table class="table ">
+
+                                            <tbody id="myTable">
+                                                <tr>
+                                                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Acute/Rehab Therapies (PT, OT, ST) End User Training
+
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            HIM Analyst End User Training
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Inpatient Nursing End User Training
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Lab Foundations End User Training
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Periop PAT/Pre-Op/Post/PACU RN End User Training
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Pharmacist End User Training
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+                                <button class="dropdown-item" href="#">Clear all Event Titles</button>
+                                <hr class="dropdown-divider">
+                                <button class="btn btn-primary mx-3" href="#">Apply filter</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div id="calendar" class="anyCalendar cEventSessionCalendar fc-unthemed fc-ltr" data-aura-rendered-by="162:2;a" data-aura-class="cEventSessionCalendar">
+
+                        <div class="fc-view-container fc" style="">
+                            <div class="fc-view fc-agendaWeek-view fc-agenda-view" style="">
+                                <table>
+                                    <thead class="fc-head">
+                                        <tr>
+                                            <td class="fc-head-container fc-widget-header">
+                                                <div class="fc-row fc-widget-header">
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width:60.5px" class="fc-axis fc-widget-header"></th>
+                                                                <th data-date="2024-02-11" class="fc-day-header fc-widget-header fc-sun fc-future"><a data-goto="{&quot;date&quot;:&quot;2024-02-11&quot;,&quot;type&quot;:&quot;day&quot;}">Sun 1/21</a></th>
+                                                                <th data-date="2024-02-12" class="fc-day-header fc-widget-header fc-mon fc-future"><a data-goto="{&quot;date&quot;:&quot;2024-02-12&quot;,&quot;type&quot;:&quot;day&quot;}">Mon 1/22</a></th>
+                                                                <th data-date="2024-02-13" class="fc-day-header fc-widget-header fc-tue fc-future"><a data-goto="{&quot;date&quot;:&quot;2024-02-13&quot;,&quot;type&quot;:&quot;day&quot;}">Tue 1/23</a></th>
+                                                                <th data-date="2024-02-14" class="fc-day-header fc-widget-header fc-wed fc-future"><a data-goto="{&quot;date&quot;:&quot;2024-02-14&quot;,&quot;type&quot;:&quot;day&quot;}">Wed 1/24</a></th>
+                                                                <th data-date="2024-02-15" class="fc-day-header fc-widget-header fc-thu fc-future"><a data-goto="{&quot;date&quot;:&quot;2024-02-15&quot;,&quot;type&quot;:&quot;day&quot;}">Thu 1/25</a></th>
+                                                                <th data-date="2024-02-16" class="fc-day-header fc-widget-header fc-fri fc-future"><a data-goto="{&quot;date&quot;:&quot;2024-02-16&quot;,&quot;type&quot;:&quot;day&quot;}">Fri 1/26</a></th>
+                                                                <th data-date="2024-02-17" class="fc-day-header fc-widget-header fc-sat fc-future"><a data-goto="{&quot;date&quot;:&quot;2024-02-17&quot;,&quot;type&quot;:&quot;day&quot;}">Sat 1/27</a></th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="fc-body">
+                                        <tr>
+                                            <td class="fc-widget-content">
+                                                <div class="fc-day-grid fc-unselectable">
+                                                    <div class="fc-row fc-week fc-widget-content">
+                                                        <div class="fc-bg">
+                                                            <table>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="width:60.5px" class="fc-axis fc-widget-content"><span>all-day</span></td>
+                                                                        <td data-date="2024-02-11" class="fc-day fc-widget-content fc-sun fc-future"></td>
+                                                                        <td data-date="2024-02-12" class="fc-day fc-widget-content fc-mon fc-future"></td>
+                                                                        <td data-date="2024-02-13" class="fc-day fc-widget-content fc-tue fc-future"></td>
+                                                                        <td data-date="2024-02-14" class="fc-day fc-widget-content fc-wed fc-future"></td>
+                                                                        <td data-date="2024-02-15" class="fc-day fc-widget-content fc-thu fc-future"></td>
+                                                                        <td data-date="2024-02-16" class="fc-day fc-widget-content fc-fri fc-future"></td>
+                                                                        <td data-date="2024-02-17" class="fc-day fc-widget-content fc-sat fc-future"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="fc-content-skeleton">
+                                                            <table>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="width:60.5px" class="fc-axis"></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr class="fc-divider fc-widget-header">
+                                                <div class="fc-scroller fc-time-grid-container" style="overflow: hidden ; height: 650px;">
+                                                    <div class="fc-time-grid fc-unselectable">
+                                                        <div class="fc-bg">
+                                                            <table>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="width:60.5px" class="fc-axis fc-widget-content"></td>
+                                                                        <td data-date="2024-02-11" class="fc-day fc-widget-content fc-sun fc-future"></td>
+                                                                        <td data-date="2024-02-12" class="fc-day fc-widget-content fc-mon fc-future"></td>
+                                                                        <td data-date="2024-02-13" class="fc-day fc-widget-content fc-tue fc-future"></td>
+                                                                        <td data-date="2024-02-14" class="fc-day fc-widget-content fc-wed fc-future"></td>
+                                                                        <td data-date="2024-02-15" class="fc-day fc-widget-content fc-thu fc-future"></td>
+                                                                        <td data-date="2024-02-16" class="fc-day fc-widget-content fc-fri fc-future"></td>
+                                                                        <td data-date="2024-02-17" class="fc-day fc-widget-content fc-sat fc-future"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="fc-slats">
+                                                            <table>
+                                                                <tbody>
+
+
+                                                                    <tr data-time="06:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>6am</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="06:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="07:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>7am</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="07:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="08:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>8am</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="08:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="09:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>9am</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="09:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="10:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>10am</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="10:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="11:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>11am</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="11:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="12:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>12pm</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="12:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="13:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>1pm</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="13:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="14:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>2pm</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="14:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="15:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>3pm</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="15:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="16:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>4pm</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="16:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="17:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>5pm</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="17:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr data-time="18:00:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"><span>6pm</span></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+                                                                    <tr class="fc-minor" data-time="18:30:00">
+                                                                        <td style="width:60.5px" class="fc-axis fc-time fc-widget-content"></td>
+                                                                        <td class="fc-widget-content"></td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="fc-content-skeleton">
+                                                            <table>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="width:60.5px" class="fc-axis"></td>
+                                                                        <td>
+                                                                            <div class="fc-content-col">
+                                                                                <div class="fc-event-container fc-helper-container"></div>
+                                                                                <div class="fc-event-container"></div>
+                                                                                <div class="fc-highlight-container"></div>
+                                                                                <div class="fc-bgevent-container"></div>
+                                                                                <div class="fc-business-container"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="fc-content-col">
+                                                                                <div class="fc-event-container fc-helper-container"></div>
+                                                                                <div class="fc-event-container"><a id="removehiddenclass" style="background-color: rgb(207, 235, 254); border-color: rgb(255, 255, 255); color: rgb(0, 57, 107); inset: 100px 40% -550.5px 0%; z-index: 1; margin-right: 5px;" class="fc-time-grid-event fc-v-event fc-event fc-start fc-end fc-draggable fc-resizable">
+                                                                                        <div class="fc-content">
+                                                                                            <div data-full="8:00 AM - 5:00 PM" data-start="8:00" class="fc-time"><span>8:00 - 5:00</span><span class="fc-time"> ET</span>
+                                                                                            </div>
+                                                                                            <div class="fc-title">20 Sessions</div>
+                                                                                        </div>
+                                                                                        <div class="fc-bg"></div>
+                                                                                        <div class="fc-resizer fc-end-resizer"></div>
+                                                                                    </a>
+                                                                                    <a id="removehiddenclass2" style="background-color: rgb(207, 235, 254); border-color: rgb(255, 255, 255); color: rgb(0, 57, 107); inset: 450px 0% -550.5px 40%; z-index: 4;" class="fc-time-grid-event fc-v-event fc-event fc-start fc-end fc-draggable fc-resizable">
+                                                                                        <div class="fc-content">
+                                                                                            <div data-full="3:00 PM - 5:00 PM" data-start="3:00" class="fc-time"><span>3:00 - 5:00</span><span class="fc-time"> ET</span></div>
+                                                                                            <div class="fc-title">20 Sessions</div>
+                                                                                        </div>
+                                                                                        <div class="fc-bg"></div>
+                                                                                        <div class="fc-resizer fc-end-resizer"></div>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="fc-highlight-container"></div>
+                                                                                <div class="fc-bgevent-container"></div>
+                                                                                <div class="fc-business-container"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="fc-content-col">
+                                                                                <div class="fc-event-container fc-helper-container"></div>
+                                                                                <div class="fc-event-container"></div>
+                                                                                <div class="fc-highlight-container"></div>
+                                                                                <div class="fc-bgevent-container"></div>
+                                                                                <div class="fc-business-container"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="fc-content-col">
+                                                                                <div class="fc-event-container fc-helper-container"></div>
+                                                                                <div class="fc-event-container"></div>
+                                                                                <div class="fc-highlight-container"></div>
+                                                                                <div class="fc-bgevent-container"></div>
+                                                                                <div class="fc-business-container"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="fc-content-col">
+                                                                                <div class="fc-event-container fc-helper-container"></div>
+                                                                                <div class="fc-event-container"></div>
+                                                                                <div class="fc-highlight-container"></div>
+                                                                                <div class="fc-bgevent-container"></div>
+                                                                                <div class="fc-business-container"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="fc-content-col">
+                                                                                <div class="fc-event-container fc-helper-container"></div>
+                                                                                <div class="fc-event-container"></div>
+                                                                                <div class="fc-highlight-container"></div>
+                                                                                <div class="fc-bgevent-container"></div>
+                                                                                <div class="fc-business-container"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="fc-content-col">
+                                                                                <div class="fc-event-container fc-helper-container"></div>
+                                                                                <div class="fc-event-container"></div>
+                                                                                <div class="fc-highlight-container"></div>
+                                                                                <div class="fc-bgevent-container"></div>
+                                                                                <div class="fc-business-container"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <hr class="fc-divider fc-widget-header" style="display: none;">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="popoverDemo" class="visually-hidden">
+            <div class="fc-popover fc-more-popover" style="top: 200px; left: 25%; display: inline;">
+                <div class="fc-header fc-widget-header" style="background-color: white;"><span id="addhiddenclass" class="fc-close fc-icon fc-icon-x top-0 end-0 p-1" style="float: inline-end;"></span><span class="fc-title">Monday, 8:00-5:00 ET</span>
+                    <div class="fc-clear"></div>
+                </div>
+                <div class="fc-body fc-widget-content d-block" style="background-color: white; white-space: normal;">
+                    <div class="fc-event-container" style=" overflow-wrap: break-word;">
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b; white-space: normal;" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable d-block">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Inpatient Nursing End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable ">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Inpatient Nursing End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Periop PAT/Pre-Op/Post/PACU RN End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Pharmacist End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Pharmacist End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Acute/Rehab Therapies (PT, OT, ST) End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Acute/Rehab Therapies (PT, OT, ST) End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">HIM Analyst End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Lab Foundations End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Lab Foundations End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b; white-space: normal;" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable d-block">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Inpatient Nursing End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable ">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Inpatient Nursing End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Periop PAT/Pre-Op/Post/PACU RN End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Pharmacist End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Pharmacist End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Acute/Rehab Therapies (PT, OT, ST) End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Acute/Rehab Therapies (PT, OT, ST) End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">HIM Analyst End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Lab Foundations End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Lab Foundations End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="popoverDemo2" class="visually-hidden">
+            <div class="fc-popover fc-more-popover" style="top: 200px; left: 33%; display: inline;">
+                <div class="fc-header fc-widget-header" style="background-color: white;"><span id="addhiddenclass2" class="fc-close fc-icon fc-icon-x top-0 end-0 p-1" style="float: inline-end;"></span><span class="fc-title">Monday, 3:00-5:00 ET</span>
+                    <div class="fc-clear"></div>
+                </div>
+                <div class="fc-body fc-widget-content d-block" style="background-color: white; white-space: normal;">
+                    <div class="fc-event-container" style=" overflow-wrap: break-word;">
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b; white-space: normal;" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable d-block">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Inpatient Nursing End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable ">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Inpatient Nursing End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Periop PAT/Pre-Op/Post/PACU RN End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Pharmacist End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Pharmacist End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Acute/Rehab Therapies (PT, OT, ST) End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Acute/Rehab Therapies (PT, OT, ST) End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">HIM Analyst End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Lab Foundations End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Lab Foundations End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b; white-space: normal;" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable d-block">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Inpatient Nursing End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable ">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Inpatient Nursing End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Periop PAT/Pre-Op/Post/PACU RN End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Pharmacist End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Pharmacist End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Acute/Rehab Therapies (PT, OT, ST) End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Acute/Rehab Therapies (PT, OT, ST) End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">HIM Analyst End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Lab Foundations End User Training | Approved</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                            <div class="fc-content" style="white-space: normal;"><span class="fc-title">Lab Foundations End User Training | Planned</span></div>
+                        </a>
+                        <a style="background-color:#CFEBFE;border-color:#ffffff;color:#00396b" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- This is the END of the the body-->
+        <!-- This is the START of the Footer-->
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 compass-footer  ">
+            <p class="col-4 mb-0 "> </p>
+
+            <a href="/" class="col-4 d-flex align-items-center justify-content-center mb-3 mb-0 me-auto link-body-emphasis text-decoration-none">
+                <img src="Images/FooterLogo.png" alt="">
+            </a>
+
+
+        </footer>
+        <script src="AnyEventCal/moment.min.js"></script>
+        <script src="AnyEventCal/moment-timezone.min.js"></script>
+        <script src="AnyEventCal/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="AnyEventCal/fullcalendar.min.js"></script>
+
+        <script>
+            const addhiddenclass = document.getElementById('addhiddenclass');
+            const removehiddenclass = document.getElementById('removehiddenclass');
+            const addhiddenclass2 = document.getElementById('addhiddenclass2');
+            const removehiddenclass2 = document.getElementById('removehiddenclass2');
+            const popoverDemo = document.getElementById('popoverDemo');
+            const popoverDemo2 = document.getElementById('popoverDemo2');
+
+            addhiddenclass.addEventListener('click', () => {
+                popoverDemo.classList.add('visually-hidden');
+            });
+
+            removehiddenclass.addEventListener('click', () => {
+                popoverDemo.classList.remove('visually-hidden');
+            });
+
+            addhiddenclass2.addEventListener('click', () => {
+                popoverDemo2.classList.add('visually-hidden');
+            });
+
+            removehiddenclass2.addEventListener('click', () => {
+                popoverDemo2.classList.remove('visually-hidden');
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
+
+
+</main>
+</body>
